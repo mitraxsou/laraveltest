@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/hello/user', 'Admin\Controller@first');
+
+Route::get('/test','Controller@test');
+Route::get('/test/{id}/{name}','Controller@testIdName');
+Route::get('/testRedirect','Controller@first');
+Route::get('/login','Admin\LoginController@login');
+
+//ading resource controller
+
+Route::resource('/res','Admin\ResourceController');
+
