@@ -26,9 +26,13 @@ Route::resource('/res','Admin\ResourceController');
 
 Route::get('/getpara/{var1}/{var2}','Controller@passParameters');
 
-//testModel
+//testModelsignup
 
 Route::get('/testModel','testModelController@create');
 
 Route::post('/testModel','testModelController@store');
+
+//testmodellogin
+Route::get('/testModelLogin','testModelController@login');
+Route::post('/testModelLogin','testModelController@index');
 
