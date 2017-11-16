@@ -22,3 +22,13 @@ Route::get('/login','Admin\LoginController@login');
 
 Route::resource('/res','Admin\ResourceController');
 
+//adding variable using compact function to the blade templade
+
+Route::get('/getpara/{var1}/{var2}','Controller@passParameters');
+
+//testModel
+
+Route::get('/testModel','testModelController@create');
+
+Route::post('/testModel','testModelController@store');
+

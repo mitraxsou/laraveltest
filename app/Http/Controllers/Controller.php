@@ -28,4 +28,8 @@ class Controller extends BaseController
     			//return view('test');
     	return redirect ('/testRedirect');
     }
+
+    function passParameters($var1,$var2){
+         return view('sendpara',compact('var1','var2'));
+    }
 }
