@@ -16,7 +16,7 @@
 Route::get('/test','Controller@test');
 Route::get('/test/{id}/{name}','Controller@testIdName');
 Route::get('/testRedirect','Controller@first');
-Route::get('/login','Admin\LoginController@login');
+//Route::get('/login','Admin\LoginController@login');
 
 //ading resource controller
 
@@ -33,6 +33,18 @@ Route::get('/testModel','testModelController@create');
 Route::post('/testModel','testModelController@store');
 
 //testmodellogin
+Route::group([ 'middleware'=>'auth'],function()
+{
 Route::get('/testModelLogin','testModelController@login');
-Route::post('/testModelLogin','testModelController@index');
+Route::get('/testModelUser','testModelController@showUser');
+Route::post('/testModelLogin','testModelController@index')->name('login2');
+});
+
+//added by php artisan make:Auth
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//another way to add middleware in route
+Route::get('/testModelUser2','testModelController@showUser')->middleware('auth');
 
